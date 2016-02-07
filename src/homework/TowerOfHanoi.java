@@ -8,9 +8,9 @@ public class TowerOfHanoi {
 	// Poles from left to right is A, B, C
 	// Top disk is 0 and bottom disk is n - 1
 	
-	private static int n = 3;
+	private static int n = 10;
 	private static int startPos = 0;
-	private static int[] disksPos= new int[5];
+	private static int[] disksPos= new int[n];
 	
 	public static void main(String[] args) {		
 		for (int i = 0; i < n; i++)
@@ -24,6 +24,11 @@ public class TowerOfHanoi {
 			System.out.printf("Step %d - ", i);
 			
 			for (int j = n - 1; j > -1; j--) {
+				/*
+				That pattern I found during the last homework assignment was 
+				that (StepNum % Math.pow(2, 'which disk to move') == 0) 
+				can be used to determine which disk moves given the stepNum and the number of Disks
+				*/
 				if (i % (int)Math.pow(2, j) == 0) {
 					int shift = j % 2 == 0 ? 1 : -1;
 					
