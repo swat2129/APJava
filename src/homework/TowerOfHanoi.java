@@ -19,6 +19,13 @@ public class TowerOfHanoi {
 		solveTOH();
 	}
 	
+	public static void move(int disc, String from, String other, String to) {
+		if (disc == 1) return;
+		
+		// Else
+	}
+	
+	// Non-recursive method to solve the Tower of Hanoi
 	public static void solveTOH() {
 		for (int i = 1; i < (int)Math.pow(2, n); i++) {
 			System.out.printf("Step %d - ", i);
