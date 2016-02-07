@@ -8,7 +8,7 @@ public class TowerOfHanoi {
 	// Poles from left to right is A, B, C
 	// Top disk is 0 and bottom disk is n - 1
 	
-	private static int n = 10;
+	private static int n = 3;
 	private static int startPos = 0;
 	private static int[] disksPos= new int[n];
 	
@@ -16,19 +16,31 @@ public class TowerOfHanoi {
 		for (int i = 0; i < n; i++)
 			disksPos[i] = startPos;
 		
+		long startTime = System.nanoTime();
 		solveTOH();
+		System.out.println("Run time: " + (System.nanoTime() - startTime));
+		
+		System.out.println();
+		
+		startTime = System.nanoTime();
+		move(n, "A", "C", "B");
+		System.out.println("Run time: " + (System.nanoTime() - startTime));
 	}
 	
 	public static void move(int disc, String from, String other, String to) {
-		if (disc == 1) return;
-		
-		// Else
+		if (disc == 1) {
+			System.out.printf("Move Disk 0 from %s to %s.\n", from, to);
+		} else {
+			move(disc - 1, from, to, other);
+			System.out.printf("Move Disk %d from %s to %s.\n", disc - 1, from, to);
+			move(disc - 1, other, from, to);
+		}
 	}
 	
 	// Non-recursive method to solve the Tower of Hanoi
 	public static void solveTOH() {
 		for (int i = 1; i < (int)Math.pow(2, n); i++) {
-			System.out.printf("Step %d - ", i);
+			// System.out.printf("Step %d - ", i);
 			
 			for (int j = n - 1; j > -1; j--) {
 				/*
