@@ -9,36 +9,38 @@ public class TowerOfHanoi {
 	// Top disk is 0 and bottom disk is n - 1
 	
 	private static int n = 3;
-	private static int startPos = 0;
 	private static int[] disksPos= new int[n];
 	
 	public static void main(String[] args) {		
-		for (int i = 0; i < n; i++)
-			disksPos[i] = startPos;
-		
 		long startTime = System.nanoTime();
-		solveTOH();
+		solveTOH(0,0);
 		System.out.println("Run time: " + (System.nanoTime() - startTime));
 		
 		System.out.println();
 		
 		startTime = System.nanoTime();
-		move(n, "A", "C", "B");
+		move(n, "B", "A", "C");
 		System.out.println("Run time: " + (System.nanoTime() - startTime));
 	}
 	
+	// Recursive method to solve the Tower of Hanoi
 	public static void move(int disc, String from, String other, String to) {
-		if (disc == 1) {
+		if (disc < 1) {
+			return;
+		} else if (disc == 1) {
 			System.out.printf("Move Disk 0 from %s to %s.\n", from, to);
 		} else {
-			move(disc - 1, from, to, other);
-			System.out.printf("Move Disk %d from %s to %s.\n", disc - 1, from, to);
-			move(disc - 1, other, from, to);
+			move(disc - 1, from, to, other); // Move  n - 1 disks to the empty peg
+			System.out.printf("Move Disk %d from %s to %s.\n", disc - 1, from, to); // Move base peg to destination
+			move(disc - 1, other, from, to); // Move n - 1 disks to the destination peg
 		}
 	}
 	
 	// Non-recursive method to solve the Tower of Hanoi
-	public static void solveTOH() {
+	public static void solveTOH(int from, int to) {
+		for (int i = 0; i < n; i++)
+			disksPos[i] = from;
+		
 		for (int i = 1; i < (int)Math.pow(2, n); i++) {
 			// System.out.printf("Step %d - ", i);
 			
