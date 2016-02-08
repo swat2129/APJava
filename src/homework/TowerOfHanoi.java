@@ -8,7 +8,7 @@ public class TowerOfHanoi {
 	// Poles from left to right is A, B, C
 	// Top disk is 0 and bottom disk is n - 1
 	
-	private static int n = 3;
+	private static int n = 4;
 	private static int[] disksPos= new int[n];
 	
 	public static void main(String[] args) {		
@@ -37,6 +37,7 @@ public class TowerOfHanoi {
 	}
 	
 	// Non-recursive method to solve the Tower of Hanoi
+	// However the destination peg can't be chosen as of now
 	public static void solveTOH(int from, int to) {
 		for (int i = 0; i < n; i++)
 			disksPos[i] = from;
