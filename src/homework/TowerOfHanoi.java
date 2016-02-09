@@ -23,6 +23,7 @@ public class TowerOfHanoi {
 		System.out.println("Run time: " + (System.nanoTime() - startTime));
 	}
 	
+	// Testing git on school computer
 	// Recursive method to solve the Tower of Hanoi
 	public static void move(int disc, String from, String other, String to) {
 		if (disc < 1) {
