@@ -19,7 +19,7 @@ public class TowerOfHanoi {
 		System.out.println();
 		
 		startTime = System.nanoTime();
-		move(n, "B", "A", "C");
+		move(n, "A", "B", "C");
 		System.out.println("Run time: " + (System.nanoTime() - startTime));
 	}
 	
@@ -53,14 +53,10 @@ public class TowerOfHanoi {
 				can be used to determine which disk moves given the stepNum and the number of Disks
 				*/
 				if (i % (int)Math.pow(2, j) == 0) {
-					int shift = j % 2 == 0 ? 1 : -1;
-					
+					int shift = j % 2 == 0 ? 1 : 2;
 					System.out.printf("Move Disk %d from %C to ", j, pos[disksPos[j]]);
-					
 					disksPos[j] += shift;
-					if (disksPos[j] < 0) disksPos[j] += 3;
-					else disksPos[j] %= 3;
-					
+					disksPos[j] %= 3;			
 					System.out.printf("%C.\n", pos[disksPos[j]]);
 					
 					break;
