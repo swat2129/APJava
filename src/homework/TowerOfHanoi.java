@@ -44,11 +44,9 @@ public class TowerOfHanoi {
 			disksPos[i] = from;
 		
 		for (int i = 1; i < (int)Math.pow(2, n); i++) {
-			// System.out.printf("Step %d - ", i);
-			
 			for (int j = n - 1; j > -1; j--) {
 				/*
-				That pattern I found during the last homework assignment was 
+				The pattern I found during the last homework assignment was 
 				that (StepNum % Math.pow(2, 'which disk to move') == 0) 
 				can be used to determine which disk moves given the stepNum and the number of Disks
 				*/
