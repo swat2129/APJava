@@ -13,13 +13,13 @@ public class TowerOfHanoi {
 	
 	public static void main(String[] args) {		
 		long startTime = System.nanoTime();
-		solveTOH(0,0);
+		solveTOH(1,2);
 		System.out.println("Run time: " + (System.nanoTime() - startTime));
 		
 		System.out.println();
 		
 		startTime = System.nanoTime();
-		move(n, "A", "B", "C");
+		move(n, "B", "A", "C");
 		System.out.println("Run time: " + (System.nanoTime() - startTime));
 	}
 	
@@ -38,11 +38,14 @@ public class TowerOfHanoi {
 	}
 	
 	// Non-recursive method to solve the Tower of Hanoi
-	// However the destination peg can't be chosen as of now
+	// The pegs are labeled from left to right: A:0, B:1, C:2
 	public static void solveTOH(int from, int to) {
+		if (from == to) return;
+		
 		for (int i = 0; i < n; i++)
 			disksPos[i] = from;
 		
+		int shift;
 		for (int i = 1; i < (int)Math.pow(2, n); i++) {
 			for (int j = n - 1; j > -1; j--) {
 				/*
@@ -51,7 +54,9 @@ public class TowerOfHanoi {
 				can be used to determine which disk moves given the stepNum and the number of Disks
 				*/
 				if (i % (int)Math.pow(2, j) == 0) {
-					int shift = j % 2 == 0 ? 1 : 2;
+					if (n % 2 == 0 && from + 1 % 3 == to) shift = j % 2 == 0 ? 2 : 1;
+					else shift = j % 2 == 0 ? 1 : 2;
+					
 					System.out.printf("Move Disk %d from %C to ", j, pos[disksPos[j]]);
 					disksPos[j] += shift;
 					disksPos[j] %= 3;			
