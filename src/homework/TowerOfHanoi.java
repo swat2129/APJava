@@ -16,7 +16,7 @@ public class TowerOfHanoi {
 		solveTOH(1,2);
 		System.out.println("Run time: " + (System.nanoTime() - startTime));
 		
-		System.out.println();
+		System.out.println("\n\n");
 		
 		startTime = System.nanoTime();
 		move(n, "B", "A", "C");
@@ -31,9 +31,12 @@ public class TowerOfHanoi {
 		} else if (disc == 1) {
 			System.out.printf("Move Disk 0 from %s to %s.\n", from, to);
 		} else {
-			move(disc - 1, from, to, other); // Move  n - 1 disks to the empty peg
-			System.out.printf("Move Disk %d from %s to %s.\n", disc - 1, from, to); // Move base peg to destination
-			move(disc - 1, other, from, to); // Move n - 1 disks to the destination peg
+			// Move all disks < n to the empty peg
+			// Move base peg to destination
+			// Move all disks < n to the destination peg
+			move(disc - 1, from, to, other);
+			System.out.printf("Move Disk %d from %s to %s.\n", disc - 1, from, to);
+			move(disc - 1, other, from, to);
 		}
 	}
 	
