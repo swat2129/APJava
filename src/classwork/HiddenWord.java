@@ -28,4 +28,22 @@ public class HiddenWord {
 		
 		return hint;
 	}
+	
+	public String getHintv2(String guess) {
+		String hint = new String();
+		char[] strA = str.toCharArray();
+		char[] guessA = guess.toCharArray();
+		
+		for (int i = 0; i < strA.length; i++) {
+			if (strA[i] == guessA[i]) {
+				hint += strA[i];
+			} else if (str.indexOf(guess.charAt(i)) > -1) {
+				hint += "+";
+			} else {
+				hint += "*";
+			}
+		}
+		
+		return hint;
+	}
 }
