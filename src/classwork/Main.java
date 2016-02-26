@@ -8,7 +8,7 @@ public class Main {
 		long startTime = System.nanoTime();
 		System.out.println(puzzle.getHint("HEART"));
 		long endTime = System.nanoTime();
-		System.out.println(endTime - startTime);
+		System.out.printf("Nanoseconds taken: %d\n", endTime - startTime);
 		
 		System.out.println();
 		
@@ -16,6 +16,6 @@ public class Main {
 		startTime = System.nanoTime();
 		System.out.println(puzzle.getHintv2("HEART"));
 		endTime = System.nanoTime();
-		System.out.println(endTime - startTime);
+		System.out.printf("Nanoseconds taken: %d\n", endTime - startTime);
 	}
 }
