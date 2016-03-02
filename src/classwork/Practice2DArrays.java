@@ -5,7 +5,8 @@ public class Practice2DArrays {
 		int[][] testArr = {{9, 8, 7, 6}, {5, 4, 2, 1}, {3, 9, 2, 3}};
 		// posToNeg2D(testArr, 0, 0);
 		printDoubleArr(posToNeg2D(testArr, 1, 1));
-		
+		System.out.println();
+		printArr(rowMajorOrder(testArr));
 	}
 	
 	public static int[][] posToNeg2D(int[][] mat, int x, int y) {
@@ -31,6 +32,13 @@ public class Practice2DArrays {
 			}
 		}
 		return orderedArr;
+	}
+	
+	public static void printArr(int[] arr) {
+		for (int i: arr) {
+			System.out.printf("%d ", i);
+		}
+		System.out.println();
 	}
 	
 	public static void printDoubleArr(int[][] arr) {
