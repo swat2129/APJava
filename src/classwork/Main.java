@@ -15,5 +15,6 @@ public class Main {
 		System.out.println("Version 2: \n" + puzzle.getHintv2("HEART"));
 		endTime = System.nanoTime();
 		System.out.printf("Nanoseconds taken: %d\n", endTime - startTime);
+
 	}
 }

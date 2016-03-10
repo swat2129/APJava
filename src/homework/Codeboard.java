@@ -65,6 +65,8 @@ public class Codeboard {
     }
 	
     public int[] getNeighbors(int[][] grid, int row, int col) {
+    	// There's a better version on Codeboard.io
+    	
         int[] r;
         
         if (row == 0 || row == grid.length - 1) {
