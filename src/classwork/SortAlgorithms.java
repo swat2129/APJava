@@ -6,13 +6,14 @@ public class SortAlgorithms {
 
 	public static void main(String[] args) {
 		int[] testArr = {8, 5, 2, 6, 9, 3, 1, 4, 0, 7};
-		// selectionSort(testArr);
 		System.out.println(Arrays.toString(testArr));
+		// selectionSort(testArr);
 		insertionSort(testArr);
 		System.out.println(Arrays.toString(testArr));
 		
 		int a = 12;
 		int b = 4;
+		System.out.println("a = " + a + " b = " + b);
 		a ^= b;
 		b ^= a;
 		a ^= b;
@@ -43,11 +44,15 @@ public class SortAlgorithms {
 		}
 	}
 	
-	public static void mergeSort(int[] arr) {
-		
+	public static int[] mergeSort(int[] arr) {
+		if (arr.length == 1)
+			return arr;
+		else
+			return merge(mergeSort(Arrays.copyOfRange(arr, 0, arr.length / 2)),
+					mergeSort(Arrays.copyOfRange(arr, arr.length / 2, arr.length)));
 	}
 	
-	public static void merge() {
-		
+	public static int[] merge(int[] arr1, int[] arr2) {
+		int[] temp = new int[arr1.length + arr2.length];
 	}
 }
