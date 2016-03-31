@@ -8,7 +8,8 @@ public class SortAlgorithms {
 		int[] testArr = {8, 5, 2, 6, 9, 3, 1, 4, 0, 7};
 		System.out.println(Arrays.toString(testArr));
 		// selectionSort(testArr);
-		insertionSort(testArr);
+		// insertionSort(testArr);
+		testArr = mergeSort(testArr);
 		System.out.println(Arrays.toString(testArr));
 		
 		int a = 12;
@@ -54,5 +55,17 @@ public class SortAlgorithms {
 	
 	public static int[] merge(int[] arr1, int[] arr2) {
 		int[] temp = new int[arr1.length + arr2.length];
+		int i = 0; // arr1 (i, j, k are iterators)
+		int j = 0; // arr2
+		int k = 0; // temp
+		
+		while (i < arr1.length && j < arr2.length) {
+			if (arr1[i] <= arr2[j]) temp[k++] = arr1[i++];
+			else temp[k++] = arr2[j++];
+		}
+		while (i < arr1.length) temp[k++] = arr1[i++];
+		while (j < arr2.length) temp[k++] = arr2[j++];
+		
+		return temp;
 	}
 }
